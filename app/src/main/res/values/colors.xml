@@ -6,4 +6,8 @@
     <color name="red">#F83758</color>
     <color name="blue">#414784</color>
     <color name="linier">#AA3459</color>
+
+    <color name="primarycolor">#414784</color>
+    <color name="secondarycolor">#C13351</color>
+    <color name="abumuda">#A8A8A9</color>
 </resources>

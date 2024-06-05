@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ss1"
+        android:layout_centerInParent="true"
+        android:id="@+id/img_2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ss_2"
+        android:layout_below="@id/img_2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Wishlist Wonders"
+        android:textSize="25sp"
+        android:textColor="@color/primarycolor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ss_2"
+        android:text="Discover the magic of our Wishlist feature. \nEasily add products and uncover \npersonalized insights."
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/abumuda" />
+
+    <Button
+        android:id="@+id/started"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Started"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15sp"
+        android:layout_marginEnd="15sp"
+        android:background="@color/white"
+        android:textColor="@color/secondarycolor" />
+
+    <Button
+        android:id="@+id/prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prev"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15sp"
+        android:layout_marginStart="15sp"
+        android:background="@color/white"
+        android:textColor="@color/primarycolor" />
+
+
+</RelativeLayout>
