@@ -15,4 +15,8 @@
     <string name="login"><u>Login</u></string>
     <string name="text_already_have_an_account">I Already Have an Account</string>
     <string name="SignOut">Logout</string>
+    <string name="product_name">productName</string>
+    <string name="product_description">ProductDescriptions</string>
+    <string name="product_category">ProductCategory</string>
+    <string name="product_price">ProductPrice</string>
 </resources>
