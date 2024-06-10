@@ -16,6 +16,9 @@ import com.c241ps447.prodswing.databinding.ActivityDetailProductBinding
 import com.c241ps447.prodswing.view.adapter.ProductImageAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
+import java.util.Currency
+import java.util.Locale
 
 class DetailProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailProductBinding
@@ -25,14 +28,8 @@ class DetailProductActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityDetailProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         setupView()
     }
@@ -41,7 +38,7 @@ class DetailProductActivity : AppCompatActivity() {
         val productId = intent.getStringExtra(EXTRA_PRODUCT_ID)
         val productName = intent.getStringExtra(EXTRA_PRODUCT_NAME)
         val productCategory = intent.getStringExtra(EXTRA_CATEGORY)
-        val productPrice = intent.getIntExtra(EXTRA_PRICE, 0)
+        val productPrice = intent.getDoubleExtra(EXTRA_PRICE, 0.0)
         val productDescription = intent.getStringExtra(EXTRA_DESCRIPTIONS)
         val productReview = intent.getStringExtra(EXTRA_REVIEW)
 
@@ -55,7 +52,8 @@ class DetailProductActivity : AppCompatActivity() {
             }
 
             productPrice.let { price ->
-                detailProductPrice.text = price.toString()
+//                detailProductPrice.text = price.toString()
+                detailProductPrice.text = currencyFormatter(price)
             }
 
             productDescription.let { desc ->
@@ -65,12 +63,13 @@ class DetailProductActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             Log.d(TAG, "setupView: $productId")
-            viewModel.getProductImageById(productId!!).collectLatest{ result ->
-                when (result){
+            viewModel.getProductImageById(productId!!).collectLatest { result ->
+                when (result) {
                     is Result.Success -> {
                         Log.d(TAG, "setupView: ${result.data}")
                         setHorizontalImageList(result.data)
                     }
+
                     else -> false
                 }
             }
@@ -81,10 +80,23 @@ class DetailProductActivity : AppCompatActivity() {
         val adapter = ProductImageAdapter()
         adapter.submitList(items)
         with(binding) {
-            rvImageSlider.layoutManager = LinearLayoutManager(this@DetailProductActivity, LinearLayoutManager.HORIZONTAL, false)
+            rvImageSlider.layoutManager = LinearLayoutManager(
+                this@DetailProductActivity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
             rvImageSlider.adapter = adapter
             rvImageSlider.setHasFixedSize(true)
         }
+    }
+
+    private fun currencyFormatter(value: Double): String {
+        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID")) // Locale for Indonesia
+
+        // Format a number
+        val formattedAmount = formatter.format(value) // Outputs: Rp1.234.567,89 (Indonesian Rupiah format)
+
+        return formattedAmount
     }
 
     companion object {

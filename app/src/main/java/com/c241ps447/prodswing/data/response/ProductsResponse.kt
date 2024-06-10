@@ -14,7 +14,7 @@ data class ProductsResponseItem(
 	val productID: String? = null,
 
 	@field:SerializedName("price")
-	val price: Int? = null,
+	val price: Double? = null,
 
 	@field:SerializedName("review")
 	val review: String? = null,
