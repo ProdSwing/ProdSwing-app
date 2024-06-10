@@ -9,12 +9,15 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps447.prodswing.ViewModelFactory
 import com.c241ps447.prodswing.data.Result
 import com.c241ps447.prodswing.data.remote.response.ProductsResponseItem
 import com.c241ps447.prodswing.databinding.ActivityMainBinding
 import com.c241ps447.prodswing.view.adapter.ProductAdapter
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -38,25 +41,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
-        viewModel.getProducts().observe(this@MainActivity) { result ->
-            when (result) {
-                is Result.Loading -> {
-                    showLoading(true)
+        lifecycleScope.launch {
+            viewModel.getProducts().collectLatest { result ->
+                when (result) {
+                    is Result.Loading -> {
+                        showLoading(true)
+                    }
+
+                    is Result.Success -> {
+                        Log.d("MainActivity API", "setupView: ${result.data}")
+                        setProductList(result.data)
+                        showLoading(false)
+                    }
+
+                    is Result.Error -> Toast.makeText(
+                        this@MainActivity,
+                        "error in Activity",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
-                is Result.Success -> {
-                    Log.d("MainActivity API", "setupView: ${result.data}")
-                    setProductList(result.data)
-                    showLoading(false)
-                }
-
-                is Result.Error -> Toast.makeText(
-                    this@MainActivity,
-                    "error in Activity",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
-
         }
         showLoading(false)
     }

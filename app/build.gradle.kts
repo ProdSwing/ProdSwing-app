@@ -7,6 +7,7 @@ android {
     namespace = "com.c241ps447.prodswing"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.c241ps447.prodswing"
         minSdk = 24
