@@ -5,6 +5,6 @@ import com.c241ps447.prodswing.data.UserRepository
 
 object Injection {
     fun provideRepository(context: Context): UserRepository {
-        return UserRepository.getInstance()
+        return UserRepository.getInstance(context)
     }
 }

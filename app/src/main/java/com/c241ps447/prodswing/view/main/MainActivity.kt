@@ -1,5 +1,6 @@
 package com.c241ps447.prodswing.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,11 +12,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.c241ps447.prodswing.R
 import com.c241ps447.prodswing.ViewModelFactory
 import com.c241ps447.prodswing.data.Result
-import com.c241ps447.prodswing.data.remote.response.ProductsResponseItem
+import com.c241ps447.prodswing.data.response.ProductsResponseItem
 import com.c241ps447.prodswing.databinding.ActivityMainBinding
 import com.c241ps447.prodswing.view.adapter.ProductAdapter
+import com.c241ps447.prodswing.view.signin.SignInActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -41,6 +44,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        binding.apply {
+            topAppBar.setOnMenuItemClickListener {
+                when (it.itemId){
+                    R.id.logout -> {
+                        //handle logout
+
+                        startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }
         lifecycleScope.launch {
             viewModel.getProducts().collectLatest { result ->
                 when (result) {

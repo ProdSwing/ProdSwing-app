@@ -1,15 +1,8 @@
 package com.c241ps447.prodswing.view.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
-import androidx.lifecycle.viewModelScope
-import com.c241ps447.prodswing.data.Result
 import com.c241ps447.prodswing.data.UserRepository
-import com.c241ps447.prodswing.data.remote.response.ProductsResponseItem
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: UserRepository) : ViewModel() {
 

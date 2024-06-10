@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.data.remote.response
+package com.c241ps447.prodswing.data.response
 
 import com.google.gson.annotations.SerializedName
 
