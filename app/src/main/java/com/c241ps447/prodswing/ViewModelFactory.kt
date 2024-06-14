@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.c241ps447.prodswing.data.UserRepository
 import com.c241ps447.prodswing.di.Injection
 import com.c241ps447.prodswing.view.detail.DetailProductViewModel
+import com.c241ps447.prodswing.view.fragment.MainFragmentViewModel
 import com.c241ps447.prodswing.view.main.MainViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -18,6 +19,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(DetailProductViewModel::class.java) -> {
                 DetailProductViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(MainFragmentViewModel::class.java) -> {
+                MainFragmentViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
