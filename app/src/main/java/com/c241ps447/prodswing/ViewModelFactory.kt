@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.c241ps447.prodswing.data.UserRepository
 import com.c241ps447.prodswing.di.Injection
-import com.c241ps447.prodswing.view.detail.DetailProductViewModel
-import com.c241ps447.prodswing.view.fragment.MainFragmentViewModel
-import com.c241ps447.prodswing.view.main.MainViewModel
+import com.c241ps447.prodswing.view.activity.detail.DetailProductViewModel
+import com.c241ps447.prodswing.view.fragment.home.MainFragmentViewModel
+import com.c241ps447.prodswing.view.activity.main.MainViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 

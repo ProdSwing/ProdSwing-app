@@ -1,20 +1,19 @@
-package com.c241ps447.prodswing.view.signin
+package com.c241ps447.prodswing.view.activity.signup
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.c241ps447.prodswing.databinding.ActivitySignInBinding
-import com.c241ps447.prodswing.view.main.MainActivity
-import com.c241ps447.prodswing.view.signup.SignUpActivity
+import com.c241ps447.prodswing.databinding.ActivitySignUpBinding
+import com.c241ps447.prodswing.view.activity.signin.SignInActivity
 
-class SignInActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignInBinding
+class SignUpActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivitySignInBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
@@ -22,15 +21,16 @@ class SignInActivity : AppCompatActivity() {
 
     private fun setupView() {
         binding.apply {
-            signUpTextView.setOnClickListener {
-                startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
+
+            signUpButton.setOnClickListener {
+                showLoading(true)
+                startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
+                showLoading(false)
                 finish()
             }
 
-            loginButton.setOnClickListener {
-                showLoading(true)
-                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
-                showLoading(false)
+            gologinTextView.setOnClickListener {
+                startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
                 finish()
             }
         }

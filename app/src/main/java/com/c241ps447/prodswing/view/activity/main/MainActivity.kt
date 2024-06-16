@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.view.main
+package com.c241ps447.prodswing.view.activity.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import com.c241ps447.prodswing.R
 import com.c241ps447.prodswing.ViewModelFactory
 import com.c241ps447.prodswing.databinding.ActivityMainBinding
-import com.c241ps447.prodswing.view.fragment.AccountFragment
-import com.c241ps447.prodswing.view.fragment.MainFragment
-import com.c241ps447.prodswing.view.signin.SignInActivity
+import com.c241ps447.prodswing.view.fragment.account.AccountFragment
+import com.c241ps447.prodswing.view.fragment.home.MainFragment
+import com.c241ps447.prodswing.view.activity.signin.SignInActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -39,11 +39,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupView() {
         binding.apply {
+            // Top Bar
             topAppBar.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.logout -> {
                         //handle logout
-
                         startActivity(Intent(this@MainActivity, SignInActivity::class.java))
                         true
                     }
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            // Bottom Nav
             bottomNavigation.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.sentiment -> {

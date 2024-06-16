@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.view.fragment
+package com.c241ps447.prodswing.view.fragment.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow

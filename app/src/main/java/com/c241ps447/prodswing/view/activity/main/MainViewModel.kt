@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.view.main
+package com.c241ps447.prodswing.view.activity.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow

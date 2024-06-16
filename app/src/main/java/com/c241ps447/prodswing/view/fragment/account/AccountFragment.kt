@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.view.fragment
+package com.c241ps447.prodswing.view.fragment.account
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

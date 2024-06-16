@@ -15,17 +15,17 @@
         android:theme="@style/Theme.ProdSwing"
         tools:targetApi="31">
         <activity
-            android:name=".view.detail.DetailProductActivity"
+            android:name=".view.activity.detail.DetailProductActivity"
             android:exported="false" />
         <activity
-            android:name=".view.signup.SignUpActivity"
+            android:name=".view.activity.signup.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".view.signin.SignInActivity"
-            android:exported="false"/>
+            android:name=".view.activity.signin.SignInActivity"
+            android:exported="false" />
         <activity
-            android:name=".view.main.MainActivity"
-            android:exported="true" >
+            android:name=".view.activity.main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

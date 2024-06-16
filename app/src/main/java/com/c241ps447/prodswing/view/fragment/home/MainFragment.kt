@@ -1,4 +1,4 @@
-package com.c241ps447.prodswing.view.fragment
+package com.c241ps447.prodswing.view.fragment.home
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.c241ps447.prodswing.R
 import com.c241ps447.prodswing.ViewModelFactory
 import com.c241ps447.prodswing.data.Result
 import com.c241ps447.prodswing.data.response.ProductsResponseItem

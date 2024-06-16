@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.c241ps447.prodswing.data.response.ProductsResponseItem
 import com.c241ps447.prodswing.databinding.ItemProductsBinding
-import com.c241ps447.prodswing.view.detail.DetailProductActivity
+import com.c241ps447.prodswing.view.activity.detail.DetailProductActivity
 
 class ProductAdapter :
     ListAdapter<ProductsResponseItem, ProductAdapter.MyViewHolder>(DIFF_CALLBACK) {
