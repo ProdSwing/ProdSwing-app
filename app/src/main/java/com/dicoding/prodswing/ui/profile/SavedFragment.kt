@@ -20,7 +20,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.databinding.EditProfileBinding
-import com.dicoding.prodswing.model.User
+import com.dicoding.prodswing.data.firebase.model.User
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
 import com.dicoding.prodswing.util.await
 import com.dicoding.prodswing.util.createCustomTempFile

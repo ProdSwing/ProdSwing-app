@@ -7,9 +7,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.prodswing.databinding.ActivityProductBinding
 import com.dicoding.prodswing.databinding.ItemLayoutReviewBinding
-import com.dicoding.prodswing.model.Category
-import com.dicoding.prodswing.model.Product
-import com.dicoding.prodswing.model.Review
+import com.dicoding.prodswing.data.firebase.model.Category
+import com.dicoding.prodswing.data.firebase.model.Product
+import com.dicoding.prodswing.data.firebase.model.Review
 import com.google.firebase.firestore.FirebaseFirestore
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import java.text.NumberFormat

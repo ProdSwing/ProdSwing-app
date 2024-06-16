@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.load
 import com.dicoding.prodswing.R
-import com.dicoding.prodswing.model.Category
+import com.dicoding.prodswing.data.firebase.model.Category
 
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {

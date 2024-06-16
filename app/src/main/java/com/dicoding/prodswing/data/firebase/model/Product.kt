@@ -1,4 +1,4 @@
-package com.dicoding.prodswing.model
+package com.dicoding.prodswing.data.firebase.model
 
 import android.os.Parcelable
 import com.google.firebase.firestore.DocumentId

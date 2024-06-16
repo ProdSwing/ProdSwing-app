@@ -16,7 +16,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.databinding.HomeCategoryBinding
-import com.dicoding.prodswing.model.Category
+import com.dicoding.prodswing.data.firebase.model.Category
 import com.dicoding.prodswing.ui.product.TrendingProductActivity
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
 import com.google.firebase.auth.FirebaseAuth

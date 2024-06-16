@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.prodswing.databinding.ActivitySigninBinding
-import com.dicoding.prodswing.model.User
+import com.dicoding.prodswing.data.firebase.model.User
 import com.dicoding.prodswing.ui.main.MainActivity
 import com.dicoding.prodswing.ui.sign_up.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
