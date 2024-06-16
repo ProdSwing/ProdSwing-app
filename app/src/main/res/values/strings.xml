@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">UrFruits</string>
+    <string name="greeting">Hai, Selamat datang 🎉</string>
+    <string name="user_name_placeholder">Aan Hyung</string>
+    <string name="user_photo">User Photo</string>
+    <string name="history_scanning">History Scanning</string>
+    <string name="fruit_image">Fruit Image</string>
+    <string name="more_details">More Details</string>
+    <string name="history_name">History Scanning</string>
+    <string name="filter">Mangga</string>
+    <!--        <style name="Widget.Material3.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">-->
+
+</resources>
