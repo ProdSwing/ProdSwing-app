@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressMaterialButton">
+        <attr name="text" format="string" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="textAllCaps" format="boolean" />
+        <attr name="backgroundTint" format="color" />
+    </declare-styleable>
+</resources>

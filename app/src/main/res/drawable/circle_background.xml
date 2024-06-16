@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#AABBCC"/> <!-- Ganti warna sesuai keinginan -->
+    <size
+        android:width="72dp"
+        android:height="72dp"/> <!-- Sesuaikan ukuran dengan ukuran tombol Anda -->
+</shape>

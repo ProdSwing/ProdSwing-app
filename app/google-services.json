@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1014907475355",
+    "project_id": "prodswing-425502",
+    "storage_bucket": "prodswing-425502.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014907475355:android:c5a7b1a60bbf10ddd2bd3e",
+        "android_client_info": {
+          "package_name": "com.dicoding.prodswing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014907475355-broq3a5aa8cvr9ab97r5qeea4jc6e82o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdPmd5JmU-MVdrD6eoeGflz1e1fw6nrcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014907475355-broq3a5aa8cvr9ab97r5qeea4jc6e82o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
