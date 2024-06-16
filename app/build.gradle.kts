@@ -69,17 +69,17 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation(libs.material)
+    implementation(libs.circleimageview)
 
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-storage-ktx")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
 
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("io.coil-kt:coil:2.6.0")
+    implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.coil)
 
-    implementation("me.relex:circleindicator:2.1.6")
-    implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0")
+    implementation(libs.circleindicator)
+    implementation(libs.whynotimagecarousel)
 }

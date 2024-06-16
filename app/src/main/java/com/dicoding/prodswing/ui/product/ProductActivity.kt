@@ -1,7 +1,9 @@
 package com.dicoding.prodswing.ui.product
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.prodswing.databinding.ActivityProductBinding
 import com.dicoding.prodswing.databinding.ItemLayoutReviewBinding
@@ -19,6 +21,7 @@ class ProductActivity : AppCompatActivity() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private var product: Product? = null
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
