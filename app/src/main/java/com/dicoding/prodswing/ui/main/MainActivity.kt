@@ -13,7 +13,6 @@ import com.dicoding.prodswing.R
 import com.dicoding.prodswing.databinding.ActivityMainBinding
 import com.dicoding.prodswing.ui.profile.SavedFragment
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
