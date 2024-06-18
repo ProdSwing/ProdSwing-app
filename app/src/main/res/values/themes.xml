@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    <style name="AppTheme" parent="Theme.MaterialComponents"/>-->
-    <style name="Theme.prodswing" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.prodswing" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="windowActionBar">false</item>
+<!--        <item name="windowActionBar">false</item>-->
         <item name="windowNoTitle">true</item>
 
     </style>

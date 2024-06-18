@@ -1,4 +1,4 @@
-package com.dicoding.prodswing.ui.product
+package com.dicoding.prodswing.ui.main
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.prodswing.ViewModelFactory
 import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import com.dicoding.prodswing.databinding.FragmentSentimentBinding
+import com.dicoding.prodswing.ui.product.ProductViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

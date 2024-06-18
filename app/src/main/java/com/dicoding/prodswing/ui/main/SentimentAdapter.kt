@@ -1,4 +1,4 @@
-package com.dicoding.prodswing.ui.product
+package com.dicoding.prodswing.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

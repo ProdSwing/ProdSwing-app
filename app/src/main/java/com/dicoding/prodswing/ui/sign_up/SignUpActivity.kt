@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.prodswing.databinding.ActivitySignupBinding
@@ -24,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
