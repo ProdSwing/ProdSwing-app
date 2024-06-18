@@ -15,13 +15,16 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.ViewModelFactory
+import com.dicoding.prodswing.data.firebase.model.Product
 import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import com.dicoding.prodswing.databinding.ActivityTrendingProductsBinding
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class TrendingProductActivity : AppCompatActivity() {
 
@@ -49,9 +52,9 @@ class TrendingProductActivity : AppCompatActivity() {
 
         fetchUser()
         setupListeners()
-//        setupRecyclerView()
-//        fetchDataAndFilter()
-        fetchProducts()
+        setupRecyclerView()
+        fetchDataAndFilter()
+//        fetchProducts()
         observeData()
     }
 
@@ -101,88 +104,88 @@ class TrendingProductActivity : AppCompatActivity() {
             binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
         }
         searchQuery.observe(this) {
-//            fetchDataAndFilter()
+            fetchDataAndFilter()
         }
     }
 
-    private fun fetchProducts() {
-        lifecycleScope.launch {
-            viewModel.getProducts().collectLatest { result ->
-                when (result) {
-                    is com.dicoding.prodswing.data.Result.Success -> {
-                        Log.d("MainFragment API", "setupView: ${result.data}")
-                        setProductList(result.data)
-                        isLoading.value = false
-//                        showLoading(false)
-                    }
-
-                    is com.dicoding.prodswing.data.Result.Error -> TODO()
-
-                    else -> com.dicoding.prodswing.data.Result.Loading
-                }
-            }
-        }
-    }
-
-    private fun setProductList(items: List<ProductResponse?>) {
-        val adapter = ProductAdapter()
-        adapter.submitList(items)
-        with(binding) {
-            rvProduct.layoutManager = LinearLayoutManager(this@TrendingProductActivity)
-            rvProduct.adapter = adapter
-            rvProduct.setHasFixedSize(true)
-        }
-    }
-
-//    private fun fetchDataAndFilter() {
-//        isLoading.value = true
-//        lifecycleScope.launch(Dispatchers.IO) {
-//            firebaseFirestore.collection("products")
-//                .orderBy("name")
-//                .whereEqualTo("categoryId", categoryId)
-//                .get()
-//                .addOnSuccessListener { result ->
-//                    isLoading.value = false
-//                    try {
-//                        val listProduct = result.toObjects(Product::class.java)
-//                        val filteredProducts = if (searchQuery.value.isNullOrEmpty()) {
-//                            listProduct
-//                        } else {
-//                            val normalizedSearchQuery = searchQuery.value!!.lowercase(Locale.ROOT)
-//                            listProduct.filter { product ->
-//                                product.name?.lowercase(Locale.ROOT)?.contains(normalizedSearchQuery)
-//                                    ?: false
-//                            }
-//                        }
-//                        productAdapter.setProductList(filteredProducts)
-//                    } catch (e: Exception) {
-//                        Log.e("fetchDataAndFilter", "Error fetching data: ${e.message}", e)
-//                        runOnUiThread {
-//                            Toast.makeText(this@TrendingProductActivity, "Error fetching data", Toast.LENGTH_SHORT).show()
-//                        }
+//    private fun fetchProducts() {
+//        lifecycleScope.launch {
+//            viewModel.getProducts().collectLatest { result ->
+//                when (result) {
+//                    is com.dicoding.prodswing.data.Result.Success -> {
+//                        Log.d("MainFragment API", "setupView: ${result.data}")
+//                        setProductList(result.data)
+//                        isLoading.value = false
+////                        showLoading(false)
 //                    }
-//                }
-//                .addOnFailureListener { exception ->
-//                    isLoading.value = false
-//                    Log.e("fetchDataAndFilter", "Error fetching data: ${exception.message}", exception)
-//                    runOnUiThread {
-//                        Toast.makeText(this@TrendingProductActivity, "Error fetching data", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//        }
-//    }
-
-//    private fun setupRecyclerView() {
-//        binding.rvProduct.layoutManager = LinearLayoutManager(this)
-//        binding.rvProduct.isNestedScrollingEnabled = false
-//        binding.rvProduct.adapter = productAdapter
 //
-//        productAdapter.onItemClickListener = { product ->
-//            val intent = Intent(this, ProductActivity::class.java)
-//            intent.putExtra(ProductActivity.EXTRA_PRODUCT, product)
-//            startActivity(intent)
+//                    is com.dicoding.prodswing.data.Result.Error -> TODO()
+//
+//                    else -> com.dicoding.prodswing.data.Result.Loading
+//                }
+//            }
 //        }
 //    }
+//
+//    private fun setProductList(items: List<ProductResponse?>) {
+//        val adapter = ProductAdapter()
+//        adapter.submitList(items)
+//        with(binding) {
+//            rvProduct.layoutManager = LinearLayoutManager(this@TrendingProductActivity)
+//            rvProduct.adapter = adapter
+//            rvProduct.setHasFixedSize(true)
+//        }
+//    }
+
+    private fun fetchDataAndFilter() {
+        isLoading.value = true
+        lifecycleScope.launch(Dispatchers.IO) {
+            firebaseFirestore.collection("products")
+                .orderBy("name")
+                .whereEqualTo("categoryId", categoryId)
+                .get()
+                .addOnSuccessListener { result ->
+                    isLoading.value = false
+                    try {
+                        val listProduct = result.toObjects(Product::class.java)
+                        val filteredProducts = if (searchQuery.value.isNullOrEmpty()) {
+                            listProduct
+                        } else {
+                            val normalizedSearchQuery = searchQuery.value!!.lowercase(Locale.ROOT)
+                            listProduct.filter { product ->
+                                product.name?.lowercase(Locale.ROOT)?.contains(normalizedSearchQuery)
+                                    ?: false
+                            }
+                        }
+                        productAdapter.setProductList(filteredProducts)
+                    } catch (e: Exception) {
+                        Log.e("fetchDataAndFilter", "Error fetching data: ${e.message}", e)
+                        runOnUiThread {
+                            Toast.makeText(this@TrendingProductActivity, "Error fetching data", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    isLoading.value = false
+                    Log.e("fetchDataAndFilter", "Error fetching data: ${exception.message}", exception)
+                    runOnUiThread {
+                        Toast.makeText(this@TrendingProductActivity, "Error fetching data", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvProduct.layoutManager = LinearLayoutManager(this)
+        binding.rvProduct.isNestedScrollingEnabled = false
+        binding.rvProduct.adapter = productAdapter
+
+        productAdapter.onItemClickListener = { product ->
+            val intent = Intent(this, ProductActivity::class.java)
+            intent.putExtra(ProductActivity.EXTRA_PRODUCT, product)
+            startActivity(intent)
+        }
+    }
 
     companion object {
         const val CATEGORY_ID = "category_id"

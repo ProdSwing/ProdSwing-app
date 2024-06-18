@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.databinding.ActivityMainBinding
+import com.dicoding.prodswing.ui.product.SentimentFragment
 import com.dicoding.prodswing.ui.profile.SavedFragment
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             var selectedFragment: Fragment? = null
 
             when (item.itemId) {
+                R.id.nav_sentiment -> selectedFragment = SentimentFragment()
                 R.id.nav_home -> selectedFragment = HomeFragment()
                 R.id.nav_saved -> selectedFragment = SavedFragment()
             }
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         // Set default fragment
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
+                .replace(R.id.fragment_container, SentimentFragment())
                 .commit()
         }
 

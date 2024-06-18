@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1014907475355-f4nv0m2qjp5gch84rtf9ak2g6uev2fg3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.prodswing",
+            "certificate_hash": "637cc11494a33aa69a735428c28ec23c48f7ca4b"
+          }
+        },
+        {
           "client_id": "1014907475355-broq3a5aa8cvr9ab97r5qeea4jc6e82o.apps.googleusercontent.com",
           "client_type": 3
         }

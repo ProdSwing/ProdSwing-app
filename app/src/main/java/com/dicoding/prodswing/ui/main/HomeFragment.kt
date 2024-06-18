@@ -76,12 +76,12 @@ class HomeFragment : Fragment() {
             circularProgressDrawable.centerRadius = 30f
             circularProgressDrawable.start()
 
-            binding.ivProfile.load(it.photoUrl.toString()) {
-                crossfade(true)
-                placeholder(circularProgressDrawable)
-                transformations(CircleCropTransformation())
-                error(R.drawable.ic_placeholder_avatar)
-            }
+//            binding.ivProfile.load(it.photoUrl.toString()) {
+//                crossfade(true)
+//                placeholder(circularProgressDrawable)
+//                transformations(CircleCropTransformation())
+//                error(R.drawable.ic_placeholder_avatar)
+//            }
         }
     }
 
