@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.credentials.ClearCredentialStateRequest
+import androidx.credentials.CredentialManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.prodswing.R
@@ -30,27 +32,6 @@ class MainActivity : AppCompatActivity() {
         // Hide the action bar
         supportActionBar?.hide()
 
-        // Set background to null
-        binding.bottomNavigationView.background = null
-//        bottomNavigationView.menu.getItem(1).isEnabled = false
-
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            var selectedFragment: Fragment? = null
-
-            when (item.itemId) {
-                R.id.nav_sentiment -> selectedFragment = SentimentFragment()
-                R.id.nav_home -> selectedFragment = HomeFragment()
-                R.id.nav_saved -> selectedFragment = SavedFragment()
-            }
-
-            if (selectedFragment != null) {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, selectedFragment)
-                    .commit()
-            }
-            true
-        }
-
         // Set default fragment
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
@@ -62,7 +43,42 @@ class MainActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        setupNavBar()
         checkUser()
+    }
+
+    private fun setupNavBar() {
+        binding.apply {
+            topAppBar.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.logout -> {
+                        // Handle more item (inside overflow menu) press
+                        signOut()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+            // Set background to null
+            bottomNavigationView.background = null
+            bottomNavigationView.setOnItemSelectedListener { item ->
+                var selectedFragment: Fragment? = null
+
+                when (item.itemId) {
+                    R.id.nav_sentiment -> selectedFragment = SentimentFragment()
+                    R.id.nav_category -> selectedFragment = HomeFragment()
+                    R.id.nav_saved -> selectedFragment = SavedFragment()
+                }
+
+                if (selectedFragment != null) {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit()
+                }
+                true
+            }
+        }
     }
 
     private fun checkUser() {
@@ -72,11 +88,23 @@ class MainActivity : AppCompatActivity() {
             if (firebaseUser == null) {
                 // User not logged in
                 runOnUiThread {
-                    Toast.makeText(this@MainActivity, "User is logged out", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "User is logged out", Toast.LENGTH_SHORT)
+                        .show()
                     startActivity(Intent(this@MainActivity, SignInActivity::class.java))
                     finishAffinity()
                 }
             }
+        }
+    }
+
+    private fun signOut() {
+        lifecycleScope.launch {
+            val credentialManager = CredentialManager.create(this@MainActivity)
+
+            firebaseAuth.signOut()
+            credentialManager.clearCredentialState(ClearCredentialStateRequest())
+            startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+            finishAffinity()
         }
     }
 }
