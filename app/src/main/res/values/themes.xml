@@ -4,7 +4,7 @@
     <style name="Theme.prodswing" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
 <!--        <item name="windowActionBar">false</item>-->
-        <item name="windowNoTitle">true</item>
+<!--        <item name="windowNoTitle">true</item>-->
 
     </style>
 

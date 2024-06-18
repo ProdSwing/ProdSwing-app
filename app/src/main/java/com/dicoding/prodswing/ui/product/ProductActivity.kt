@@ -95,5 +95,11 @@ class ProductActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_PRODUCT = "extra_product"
+        const val EXTRA_IMAGEPRODUCT = "extra_image_product"
+        const val EXTRA_PRICE = "extra_price"
+        const val EXTRA_NAME = "extra_name"
+        const val EXTRA_DESCRIPTIONS = "extra_desc"
+        const val EXTRA_CATEGORY_ID = "extra_category_id"
+        const val EXTRA_IMAGETHUMBNAIL = "extra_image_thumbnail"
     }
 }

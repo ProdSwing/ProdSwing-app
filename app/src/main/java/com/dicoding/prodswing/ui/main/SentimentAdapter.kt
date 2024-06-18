@@ -1,5 +1,6 @@
 package com.dicoding.prodswing.ui.main
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import com.dicoding.prodswing.databinding.ItemLayoutProductBinding
+import com.dicoding.prodswing.ui.product.ProductActivity
 
 class SentimentAdapter :
     ListAdapter<ProductResponse, SentimentAdapter.MyViewHolder>(DIFF_CALLBACK) {
@@ -20,15 +22,15 @@ class SentimentAdapter :
 //                textName.text = listProduct.productName
 //                textCategory.text = listProduct.category
 //
-//                root.setOnClickListener {
-//                    Intent(root.context, DetailProductActivity::class.java).also {
-//                        it.putExtra(DetailProductActivity.EXTRA_PRODUCT_ID, listProduct.productID)
-//                        it.putExtra(DetailProductActivity.EXTRA_PRODUCT_NAME, listProduct.productName)
-//                        it.putExtra(DetailProductActivity.EXTRA_CATEGORY, listProduct.category)
-//                        it.putExtra(DetailProductActivity.EXTRA_PRICE, listProduct.price)
-//                        it.putExtra(DetailProductActivity.EXTRA_DESCRIPTIONS, listProduct.description)
-//                        it.putExtra(DetailProductActivity.EXTRA_REVIEW, listProduct.review)
-//
+                root.setOnClickListener {
+                    Intent(root.context, ProductActivity::class.java).also {
+                        it.putExtra(ProductActivity.EXTRA_PRODUCT_ID, listProduct.productID)
+                        it.putExtra(ProductActivity.EXTRA_PRODUCT_NAME, listProduct.productName)
+                        it.putExtra(DetailProductActivity.EXTRA_CATEGORY, listProduct.category)
+                        it.putExtra(DetailProductActivity.EXTRA_PRICE, listProduct.price)
+                        it.putExtra(DetailProductActivity.EXTRA_DESCRIPTIONS, listProduct.description)
+                        it.putExtra(DetailProductActivity.EXTRA_REVIEW, listProduct.review)
+
 //                        val optionsCompat: ActivityOptionsCompat =
 //                            ActivityOptionsCompat.makeSceneTransitionAnimation(
 //                                itemView.context as Activity,
@@ -37,8 +39,9 @@ class SentimentAdapter :
 //                            )
 //
 //                        root.context.startActivity(it, optionsCompat.toBundle())
-//                    }
-//                }
+                        root.context.startActivity(it)
+                    }
+                }
             }
         }
     }

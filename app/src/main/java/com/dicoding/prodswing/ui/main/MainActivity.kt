@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Hide the action bar
-        supportActionBar?.hide()
+//        supportActionBar?.hide()
 
         // Set default fragment
         if (savedInstanceState == null) {
