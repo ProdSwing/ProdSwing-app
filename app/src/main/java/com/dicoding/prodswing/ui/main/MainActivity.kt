@@ -30,13 +30,11 @@ class MainActivity : AppCompatActivity() {
         // Hide the action bar
         supportActionBar?.hide()
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
         // Set background to null
-        bottomNavigationView.background = null
+        binding.bottomNavigationView.background = null
 //        bottomNavigationView.menu.getItem(1).isEnabled = false
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
             var selectedFragment: Fragment? = null
 
             when (item.itemId) {
