@@ -16,13 +16,11 @@ import coil.transform.CircleCropTransformation
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.ViewModelFactory
 import com.dicoding.prodswing.data.firebase.model.Product
-import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import com.dicoding.prodswing.databinding.ActivityTrendingProductsBinding
 import com.dicoding.prodswing.ui.sign_in.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.Locale
 
