@@ -2,62 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".ui.product.ProductActivity">
 
-    <!-- Back button and title -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:minHeight="?attr/actionBarSize"
+            app:title="Product Detail"
+            app:navigationIcon="@drawable/ic_back" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--    &lt;!&ndash; Back button and title &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical">-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/back_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:src="@drawable/ic_back" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Product"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingEnd="27dp" />-->
+<!--    </LinearLayout>-->
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:padding="16dp"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_back" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Product"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingEnd="27dp" />
-    </LinearLayout>
-
-    <!-- Product Image -->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="16dp"
-        app:strokeColor="@android:color/darker_gray"
-        app:strokeWidth="1dp"
-        android:layout_marginTop="30dp">
-
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/product_image_carousel"
+        <!-- Product Image -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:showCaption="false"
-            app:showIndicator="true"
-            app:showBottomShadow="false"
-            app:showTopShadow="false"
-            app:showNavigationButtons="false"
-            app:autoPlay="true"
-            app:autoPlayDelay="2000"
-            app:infiniteCarousel="true"
-            android:scaleType="centerCrop"
-            tools:src="@tools:sample/avatars" />
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_height="300dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@android:color/darker_gray"
+            app:strokeWidth="1dp">
+
+            <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                android:id="@+id/product_image_carousel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:showCaption="false"
+                app:showIndicator="true"
+                app:showBottomShadow="false"
+                app:showTopShadow="false"
+                app:showNavigationButtons="false"
+                app:autoPlay="true"
+                app:autoPlayDelay="2000"
+                app:infiniteCarousel="true"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
+        </com.google.android.material.card.MaterialCardView>
 
     <!-- Product Name -->
     <TextView
@@ -100,6 +120,8 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@android:color/black" />
+
+    </LinearLayout>
 
     <!-- Product Review -->
     <LinearLayout

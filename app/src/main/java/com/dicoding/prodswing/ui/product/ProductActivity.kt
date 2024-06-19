@@ -1,8 +1,11 @@
 package com.dicoding.prodswing.ui.product
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.dicoding.prodswing.data.firebase.model.Category
 import com.dicoding.prodswing.data.firebase.model.Product
 import com.dicoding.prodswing.data.firebase.model.Review
@@ -23,6 +26,11 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(0, systemBars.top, 0, systemBars.bottom)
+            insets
+        }
 
         firebaseFirestore = FirebaseFirestore.getInstance()
         product = Product(
@@ -40,9 +48,16 @@ class ProductActivity : AppCompatActivity() {
             finish()
         }
 
+        setupOnListener()
         showProductData()
         getProductCategory(product?.categoryId)
         getProductReviews()
+    }
+
+    private fun setupOnListener() {
+        binding.apply {
+            topAppBar.setNavigationOnClickListener { onBackPressed() }
+        }
     }
 
     private fun getProductReviews() {
