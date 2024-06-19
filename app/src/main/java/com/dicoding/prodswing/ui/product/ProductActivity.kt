@@ -1,15 +1,13 @@
 package com.dicoding.prodswing.ui.product
 
-import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.prodswing.databinding.ActivityProductBinding
-import com.dicoding.prodswing.databinding.ItemLayoutReviewBinding
 import com.dicoding.prodswing.data.firebase.model.Category
 import com.dicoding.prodswing.data.firebase.model.Product
 import com.dicoding.prodswing.data.firebase.model.Review
+import com.dicoding.prodswing.databinding.ActivityProductBinding
+import com.dicoding.prodswing.databinding.ItemLayoutReviewBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import java.text.NumberFormat
