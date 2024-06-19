@@ -24,12 +24,16 @@ class SentimentAdapter :
 //
                 root.setOnClickListener {
                     Intent(root.context, ProductActivity::class.java).also {
-                        it.putExtra(ProductActivity.EXTRA_PRODUCT_ID, listProduct.productID)
-                        it.putExtra(ProductActivity.EXTRA_PRODUCT_NAME, listProduct.productName)
-                        it.putExtra(DetailProductActivity.EXTRA_CATEGORY, listProduct.category)
-                        it.putExtra(DetailProductActivity.EXTRA_PRICE, listProduct.price)
-                        it.putExtra(DetailProductActivity.EXTRA_DESCRIPTIONS, listProduct.description)
-                        it.putExtra(DetailProductActivity.EXTRA_REVIEW, listProduct.review)
+//                        it.putExtra(ProductActivity.EXTRA, listProduct.productID)
+                        it.putExtra(ProductActivity.EXTRA_ID, listProduct.name)
+                        it.putExtra(ProductActivity.EXTRA_NAME, listProduct.name)
+                        it.putExtra(ProductActivity.EXTRA_CATEGORY_ID, listProduct.categoryId)
+                        it.putExtra(ProductActivity.EXTRA_PRICE, listProduct.price)
+                        it.putExtra(ProductActivity.EXTRA_DESCRIPTIONS, listProduct.description)
+//                        it.putExtra(ProductActivity.EXTRA_REVIEW, listProduct.review)
+
+                        it.putExtra(ProductActivity.EXTRA_IMAGETHUMBNAIL, listProduct.imageThumbnail)
+                        it.putStringArrayListExtra(ProductActivity.EXTRA_IMAGEPRODUCT, listProduct.imageProduct)
 
 //                        val optionsCompat: ActivityOptionsCompat =
 //                            ActivityOptionsCompat.makeSceneTransitionAnimation(

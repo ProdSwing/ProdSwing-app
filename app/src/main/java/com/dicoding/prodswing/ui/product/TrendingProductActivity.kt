@@ -179,9 +179,18 @@ class TrendingProductActivity : AppCompatActivity() {
         binding.rvProduct.adapter = productAdapter
 
         productAdapter.onItemClickListener = { product ->
-            val intent = Intent(this, ProductActivity::class.java)
-            intent.putExtra(ProductActivity.EXTRA_PRODUCT, product)
-            startActivity(intent)
+//            val intent = Intent(this, ProductActivity::class.java)
+            Intent(this, ProductActivity::class.java).also {
+                it.putExtra(ProductActivity.EXTRA_IMAGETHUMBNAIL, product.imageThumbnail)
+                it.putExtra(ProductActivity.EXTRA_ID, product.id)
+                it.putExtra(ProductActivity.EXTRA_NAME, product.name)
+                it.putExtra(ProductActivity.EXTRA_CATEGORY_ID, product.categoryId)
+                it.putExtra(ProductActivity.EXTRA_PRICE, product.price)
+                it.putExtra(ProductActivity.EXTRA_DESCRIPTIONS, product.description)
+                it.putStringArrayListExtra(ProductActivity.EXTRA_IMAGEPRODUCT, product.imageProduct)
+//                it.putExtra(ProductActivity.EXTRA_PRODUCT, product)
+                startActivity(it)
+            }
         }
     }
 

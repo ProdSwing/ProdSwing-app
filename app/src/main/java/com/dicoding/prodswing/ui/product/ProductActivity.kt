@@ -21,14 +21,21 @@ class ProductActivity : AppCompatActivity() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private var product: Product? = null
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseFirestore = FirebaseFirestore.getInstance()
-        product = intent.getParcelableExtra(EXTRA_PRODUCT, Product::class.java)
+        product = Product(
+            intent.getStringExtra(EXTRA_ID),
+            intent.getStringExtra(EXTRA_NAME),
+            intent.getLongExtra(EXTRA_PRICE, 0),
+            intent.getStringExtra(EXTRA_CATEGORY_ID),
+            intent.getStringExtra(EXTRA_DESCRIPTIONS),
+            intent.getStringExtra(EXTRA_IMAGETHUMBNAIL),
+            intent.getStringArrayListExtra(EXTRA_IMAGEPRODUCT)
+        )
 
         if (product == null) {
             Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show()
@@ -101,5 +108,7 @@ class ProductActivity : AppCompatActivity() {
         const val EXTRA_DESCRIPTIONS = "extra_desc"
         const val EXTRA_CATEGORY_ID = "extra_category_id"
         const val EXTRA_IMAGETHUMBNAIL = "extra_image_thumbnail"
+
+        const val EXTRA_ID = "extra_id"
     }
 }
