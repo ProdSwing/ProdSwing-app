@@ -7,4 +7,13 @@
 
     <!--        <style name="Widget.Material3.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">-->
 
+
+<!--    recyclerViewItem for CategoryItem-->
+    <string-array name="category_name">
+        <item>Food</item>
+        <item>Skincare</item>
+        <item>Electronic</item>
+        <item>Fashion</item>
+    </string-array>
+
 </resources>

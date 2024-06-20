@@ -25,6 +25,20 @@ class UserRepository private constructor(
         return result
     }
 
+    suspend fun getProductByCategoryName(categoryName: String): LiveData<Result<List<ProductResponse?>>> {
+        val result = MediatorLiveData<Result<List<ProductResponse?>>>()
+        result.value = Result.Loading
+        try {
+            val apiService = ApiConfig.getApiService()
+            val successResponse = apiService.getProductByCategory(categoryName)
+            result.value = Result.Success(successResponse)
+
+        } catch (e: HttpException) {
+            // Handle the error here if needed
+        }
+        return result
+    }
+
 //    suspend fun getProductImageById(id: String): LiveData<Result<List<ProductImageByIdResponseItem>>> {
 //        val result = MediatorLiveData<Result<List<ProductImageByIdResponseItem>>>()
 //        result.value = Result.Loading

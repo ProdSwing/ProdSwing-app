@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
                 when (item.itemId) {
                     R.id.nav_sentiment -> selectedFragment = SentimentFragment()
-                    R.id.nav_category -> selectedFragment = HomeFragment()
+                    R.id.nav_category -> selectedFragment = CategoryFragment()
                     R.id.nav_saved -> selectedFragment = SavedFragment()
                 }
 

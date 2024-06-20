@@ -19,6 +19,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewImage"
             android:layout_width="100dp"
+            android:visibility="gone"
             android:layout_height="100dp"
             android:elevation="0dp"
             app:cardElevation="0dp"
@@ -30,6 +31,7 @@
             <ImageView
                 android:id="@+id/ivProduct"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="match_parent"
                 android:src="@drawable/img_tas"
                 android:scaleType="centerCrop"
@@ -56,6 +58,15 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="Tas" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="result" />
 
             <ImageView
                 android:layout_width="match_parent"

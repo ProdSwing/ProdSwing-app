@@ -7,4 +7,6 @@ import com.dicoding.prodswing.data.UserRepository
 class ProductViewModel(private val repository: UserRepository): ViewModel() {
 
     suspend fun getProducts() = repository.getProducts().asFlow()
+
+    suspend fun getProductByCategory(category: String) = repository.getProductByCategoryName(category).asFlow()
 }

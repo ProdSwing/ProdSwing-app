@@ -10,9 +10,11 @@
     <color name="gray">#A0A6B1</color>
     <color name="lightgray">#F5F5F5</color>
     <color name="ijomuntahkucing">#80BC51</color>
+    <color name="green">#80BC51</color>
     <color name="ijo">#62874D</color>
     <color name="sky_gray">#fafafa</color>
     <color name="icon">#FF0000</color> <!-- Ubah nilai warna sesuai kebutuhan -->
+    <color name="red">#FF0000</color> <!-- Ubah nilai warna sesuai kebutuhan -->
     <color name="abumuda">#CCCCCC</color>
     <color name="primarycolor">#3F51B5</color>
     <color name="secondarycolor">#FF4081</color>
