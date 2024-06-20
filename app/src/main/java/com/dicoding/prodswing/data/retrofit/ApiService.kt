@@ -3,7 +3,6 @@ package com.dicoding.prodswing.data.retrofit
 import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface ApiService {
     @GET("results")

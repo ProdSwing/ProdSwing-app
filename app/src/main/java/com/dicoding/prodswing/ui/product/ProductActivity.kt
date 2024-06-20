@@ -6,15 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.dicoding.prodswing.data.firebase.model.Category
 import com.dicoding.prodswing.data.firebase.model.Product
-import com.dicoding.prodswing.data.firebase.model.Review
 import com.dicoding.prodswing.databinding.ActivityProductBinding
-import com.dicoding.prodswing.databinding.ItemLayoutReviewBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
-import java.text.NumberFormat
-import java.util.Locale
 
 class ProductActivity : AppCompatActivity() {
 

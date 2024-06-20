@@ -1,25 +1,19 @@
 package com.dicoding.prodswing.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.prodswing.R
 import com.dicoding.prodswing.ViewModelFactory
-import com.dicoding.prodswing.data.Result
-import com.dicoding.prodswing.data.retrofit.response.ProductResponse
 import com.dicoding.prodswing.databinding.HomeCategoryBinding
 import com.dicoding.prodswing.ui.product.ProductViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class CategoryFragment : Fragment() {
 
