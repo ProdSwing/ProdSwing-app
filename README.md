@@ -2,7 +2,7 @@
 This repository contains an Android app that is implemented using XML Layout and flexible UI design. The app also includes TensorFlow Lite, which allows the model to run efficiently on the device without requiring a network connection.
 
 ## Table of Contents
-* [Intro](#introduction)
+* [Introduction](#introduction)
 * [Tech Used](#tech-used)
 * [Dependencies](#dependencies)
 
