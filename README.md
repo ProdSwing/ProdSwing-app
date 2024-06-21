@@ -4,7 +4,9 @@ This repository contains an Android app that is implemented using XML Layout and
 ## Table of Contents
 * [Introduction](#introduction)
 * [Tech Used](#tech-used)
+* [Steps to Rplicate](#steps-to-replicate)
 * [Dependencies](#dependencies)
+
 
 ## Introduction
 ProdSwing analyzes top products, revealing consumer sentiment to help businesses and customers make smart decisions quickly.
@@ -14,6 +16,17 @@ ProdSwing android app developed with:
 1. Kotlin
 2. TensorFlow Lite
 3. Android Studio
+
+## Steps to Replicate
+To replicate the ProdSwing Android Studio and run the application, follow these steps:
+
+### Prerequisite
+1. Android Studio
+2. Java Development Kit (JDK)
+
+### Clone This Project
+```bash
+git clone https://github.com/
 
 ## Dependencies
 
