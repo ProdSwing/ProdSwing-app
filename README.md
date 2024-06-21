@@ -26,7 +26,8 @@ To replicate the ProdSwing Android Studio and run the application, follow these 
 
 ### Clone This Project
 ```bash
-git clone https://github.com/
+git clone https://github.com/ProdSwing/ProdSwing-app.git
+```
 
 ## Dependencies
 
